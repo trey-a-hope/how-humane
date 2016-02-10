@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "outDir": "js",
+        "module": "commonjs",
+        "declaration": true,
+        "noImplicitAny": true,
+        "removeComments": true,
+        "sourceMap": true
+    },
+    "files": [
+        "ts/Controllers.ts",
+        "ts/Filters.ts",
+        "ts/Routing.ts",
+        "ts/Services.ts",
+        "ts/angular/angular.d.ts",
+        "ts/angular/angular-animate.d.ts",
+        "ts/angular/angular-cookies.d.ts",
+        "ts/angular/angular-resource.d.ts",
+        "ts/angular/angular-route.d.ts",
+        "ts/angular/angular-sanitize.d.ts",
+        "ts/angular/angular-mocks",
+        "ts/angular-ui-bootstrap/angular-ui-bootstrap.d.ts",
+        "ts/angular-ui-router/angular-ui-router.d.ts",
+        "ts/jquery/jquery.d.ts"
+    ]
+}

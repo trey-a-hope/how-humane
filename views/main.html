@@ -1,0 +1,87 @@
+<!-- Main Content -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- Application Title -->
+            <div class="row">
+                <h1 class="flipInY animated">How Human?</h1>
+            </div>
+            <!-- Total number of questions answered so far. -->
+            <div class="row">
+                <h2 class="flipInY animated">
+                    <span style="color: #D1D1D1">Questions Answered:</span> {{RPC.questionCount}}
+                    <span style="color: #D1D1D1">/{{RPC.$uiStoreService.totalQuestions}}</span>
+                </h2>
+            </div>
+            <br>
+            <hr class="row">
+            <br>
+            <div>
+                <div class="row">
+                    <!-- Image portion -->
+                    <div class="col-xs-8">
+                        <!-- Person's large image. -->
+                        <img class="largeImage center-block" ng-class="RPC.personImageClass" ng-src="{{RPC.person.results[0].user.picture.large}}" style="border: solid 6px {{RPC.personcolor}}" width="66%" />
+                    </div>
+                    <!-- Sidebar portion -->
+                    <div class="col-xs-4">
+                        <!-- Street Address -->
+                        <div class="col-xs-12 text-center" id="streetAddress" style="padding-top: 15px;">
+                            <label style="color: {{RPC.personcolor}}">Street Address</label>
+                            <input type="text" value="{{RPC.person.results[0].user.gender | capitalize:true}}" class="form-control text-center" readonly>
+                        </div>
+                        <!-- City. -->
+                        <div class="col-xs-12 text-center" id="city" style="padding-top: 15px;">
+                            <label style="color: {{RPC.personcolor}}">City</label>
+                            <input type="text" value="{{RPC.person.results[0].user.location.city | capitalize:true}}" class="form-control text-center" readonly>
+                        </div>
+                        <!-- State. -->
+                        <div class="col-xs-12 text-center" id="state" style="padding-top: 15px;">
+                            <label style="color: {{RPC.personcolor}}">State</label>
+                            <input type="text" value="{{RPC.person.results[0].user.location.state | capitalize:true}}" class="form-control text-center" readonly>
+                        </div>
+                        <!-- E-Mail -->
+                        <div class="col-xs-12 text-center" id="email" style="padding-top: 15px;">
+                            <label style="color: {{RPC.personcolor}}">E-Mail</label>
+                            <input type="text" value="{{RPC.person.results[0].user.email}}" class="form-control text-center" readonly>
+                        </div>
+                        <!-- Username. -->
+                        <div class="col-xs-12 text-center" id="userName" style="padding-top: 15px;">
+                            <label style="color: {{RPC.personcolor}}">Username</label>
+                            <input type="text" value="{{RPC.person.results[0].user.username}}" class="form-control text-center" readonly>
+                        </div>
+                        <!-- Password. -->
+                        <div class="col-xs-12 text-center" id="password" style="padding-top: 15px;">
+                            <label style="color: {{RPC.personcolor}}">Password</label>
+                            <input type="text" value="{{RPC.person.results[0].user.password}}" class="form-control text-center" readonly>
+                        </div>
+                        <!-- D-O-B. -->
+                        <div class="col-xs-12 text-center" id="password" style="padding-top: 15px;">
+                            <label style="color: {{RPC.personcolor}}">D.O.B.</label>
+                            <input type="text" value="{{RPC.person.results[0].user.dob}}" class="form-control text-center" readonly>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <!-- First & Last name. -->
+                        <h1 class="text-center" style="color: {{RPC.personcolor}}">
+                            {{RPC.person.results[0].user.name.first | capitalize:true}} {{RPC.person.results[0].user.name.last | capitalize:true}}
+                        </h1>
+                    </div>
+                </div>
+                <hr>
+                <!-- "good question", "bad question", and "next person" buttons. -->
+                <div class="row">
+                    <div class="col-xs-4">
+                        <button class="btn btn-success full-width" ng-click="RPC.openQuestionModal('positive')" ng-disabled="RPC.questionAnswered || RPC.testDone">Positive Question</button>
+                    </div>
+                    <div class="col-xs-4">
+                        <button class="btn btn-danger full-width" ng-click="RPC.openQuestionModal('negative')" ng-disabled="RPC.questionAnswered || RPC.testDone">Negative Question</button>
+                    </div>
+                    <div class="col-xs-4">
+                        <button class="btn btn-warning full-width" ng-click="RPC.getRandomPerson()" ng-disabled="!RPC.questionAnswered || RPC.testDone">Next Person</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

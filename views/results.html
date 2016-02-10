@@ -1,0 +1,70 @@
+<div ng-hide="RC.testDone">
+    <div class="row">
+        <h1 class="text-center">Please finish the test first.</h1>
+        <h2 class="text-center">
+            <span style="color: #D1D1D1">Only</span> {{ RC.$uiStoreService.totalQuestions - RC.$uiStoreService.questionCount }}
+            <span style="color: #D1D1D1">question(s) left!</span>
+        </h2>
+    </div>
+</div>
+<div ng-show="RC.testDone">
+    <h1>Results</h1>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="col-xs-4">Question</th>
+                    <th class="col-xs-2">Your Answer</th>
+                    <th class="col-xs-2">Time to Answer</th>
+                    <th class="col-xs-2">Name</th>
+                    <th class="col-xs-2 text-center">Image</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="response in RC.userResponses | orderBy: RC.sortOrder">
+                <tr>
+                    <td>{{response.question}}</td>
+                    <td>{{response.answer}}</td>
+                    <td>{{response.time}} seconds</td>
+                    <td>{{response.personName | capitalize:true}}</td>
+                    <td>
+                        <center>
+                            <img class="round-high" ng-src="{{response.personImgThumbnail}}" />
+                        </center>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-6">
+            <label>Order</label>
+            <select class="form-control" ng-model="RC.sortDirection" ng-change="RC.updateSortOrder()">
+                <option selected>Default</option>
+                <option>Ascending</option>
+                <option>Descending</option>
+            </select>
+        </div>
+        <div class="col-xs-6">
+            <label>Column</label>
+            <select class="form-control" ng-model="RC.sortCategory" ng-disabled="RC.sortDirection == 'Default'" ng-change="RC.updateSortOrder()">
+                <option value="question" selected>Question</option>
+                <option value="answer">Your Answer</option>
+                <option value="time">Time to Answer</option>
+                <option value="personName">Name</option>
+            </select>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-4">
+            <button class="btn btn-info full-width" type="button">Restart Test</button>
+        </div>
+        <div class="col-xs-4">
+            <button class="btn btn-info full-width" type="button">Post Results</button>
+        </div>
+        <div class="col-xs-4">
+            <button class="btn btn-info full-width" type="button">Refer A Friend</button>
+        </div>
+    </div>
+</div>

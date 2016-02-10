@@ -1,0 +1,8 @@
+{
+    "questions": [
+        {"question": "Would you lend this person $5 if they really needed it?"},
+        {"question": "This person has never been in trouble with the law."},
+        {"question": "This person's name is too difficult for me to pronounce."},
+        {"question": "If this person's car broke down on the highway, would you help them out?"}
+    ]
+}
